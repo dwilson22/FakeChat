@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">FakeChat</string>
+    <string name="login">Please Login</string>
+    <string name="loginHint">Username</string>
+    <string name="passwordHint">Password</string>
+    <string name="please_login">Please Login</string>
+    <string name="buttonText">Login</string>
+    <string name="version">Version 1.0</string>
+    <string name="errorMsg">Username or Password incorrect: </string>
+    <string name="attempts">&#160;attempts left!</string>
+    <string name="register">Register</string>
+    <string name="cancel">Cancel</string>
+    <string name="register_next">Enter password</string>
+    <string name="succesful">Registration Successful!</string>
+    <string name="failed">Username already taken!</string>
+</resources>
