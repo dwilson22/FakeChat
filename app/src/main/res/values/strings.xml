@@ -13,4 +13,9 @@
     <string name="register_next">Enter password</string>
     <string name="succesful">Registration Successful!</string>
     <string name="failed">Username already taken!</string>
+    <string name="select_room">Please select a chat room</string>
+    <string name="chatrooma">Chat room A</string>
+    <string name="chatroomb">Chat room B</string>
+    <string name="confirmRoom">Would you like to go to ChatRoom %1$c ?</string>
+    <string name="confirm">Confirm</string>
 </resources>
