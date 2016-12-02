@@ -15,7 +15,7 @@ import ca.danieljameswilson.fakechat.domain.DatabaseHelper;
  */
 
 public class LoginManager {
-    private String username;
+    public String username;
     private String password;
     private DatabaseHelper dbHelper;
 

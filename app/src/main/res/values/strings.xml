@@ -18,4 +18,5 @@
     <string name="chatroomb">Chat room B</string>
     <string name="confirmRoom">Would you like to go to ChatRoom %1$c ?</string>
     <string name="confirm">Confirm</string>
+    <string name="send">Send Message</string>
 </resources>

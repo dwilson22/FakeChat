@@ -19,12 +19,13 @@ import android.widget.TextView;
 public class ChatRoomActivity extends AppCompatActivity {
     private Button chat_room_a, chat_room_b;
     public Context context = this;
+    private String user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chatroom);
-
+        user = getIntent().getStringExtra("username");
         chat_room_a = (Button) findViewById(R.id.chat_room_a);
         chat_room_b = (Button) findViewById(R.id.chat_room_b);
         chat_room_a.setOnClickListener(chatRoomAListener);
@@ -60,7 +61,14 @@ public class ChatRoomActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(context, ChatActivity.class);
-                intent.putExtra("chatroom", in);
+                int room;
+                if (in == 'A'){
+                    room = 0;
+                }else{
+                    room = 1;
+                }
+                intent.putExtra("chatroom", room);
+                intent.putExtra("user", user);
                 startActivity(intent);
             }
         });

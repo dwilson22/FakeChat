@@ -10,10 +10,10 @@ import android.util.Log;
  */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "fakechat.db";
+    public static final String DATABASE_NAME = "fakechat2.db";
     private static final int DATABASE_VERSION = 1;
     public static final String TABLE_NAME_USERS = "users";
-    public static final String TABLE_NAME_MSGS = "msgs";
+    public static final String TABLE_NAME_MSGS = "msgs2";
     private static DatabaseHelper instance = null;
 
     public static DatabaseHelper getInstance(Context context){
@@ -39,9 +39,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
          createQuery = "CREATE TABLE " + TABLE_NAME_MSGS +" (" +
                 "_id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "description TEXT NOT NULL,"+
+                "message TEXT NOT NULL,"+
                 "user TEXT NOT NULL,"+
-                "received INTEGER NOT NULL DEFAULT 0)";
+                "chatroom INTEGER NOT NULL)";
 
         db.execSQL(createQuery);
 

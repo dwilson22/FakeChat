@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 attempts = 3;
                 errorTextView.setVisibility(View.INVISIBLE);
                 Intent intent = new Intent(context, ChatRoomActivity.class);
+                intent.putExtra("username", loginManager.username);
                 startActivity(intent);
 
 
