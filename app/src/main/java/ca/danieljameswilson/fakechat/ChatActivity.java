@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class ChatActivity extends AppCompatActivity {
         chatroom = getIntent().getIntExtra("chatroom", 0);
         ListView Messages = (ListView) findViewById(R.id.chat_screen);
         messageManager = new MessageManager(getApplicationContext());
-        adapter = new MessageAdapter(this, messageManager.getMessages());
+        adapter = new MessageAdapter(this, messageManager.getMessages(chatroom));
 
         Messages.setAdapter(adapter);
 
@@ -49,11 +50,18 @@ public class ChatActivity extends AppCompatActivity {
         addItem.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Message msg = new Message(msgEditText.getText().toString(),user, chatroom);
-                messageManager.add(msg);
-                adapter.swapList(messageManager.getMessages());
-                msgEditText.setText("");
-                hideKeybord(v);
+                if(!msgEditText.getText().toString().isEmpty()) {
+                    Message msg = new Message(msgEditText.getText().toString(), user, chatroom);
+                    messageManager.add(msg);
+                    adapter.swapList(messageManager.getMessages(chatroom));
+                    msgEditText.setText("");
+                    hideKeybord(v);
+                }else{
+                    CharSequence text = ChatActivity.this.getResources().getString(R.string.empty_msg);
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(ChatActivity.this, text, duration);
+                    toast.show();
+                }
             }
         });
     }
@@ -104,17 +112,16 @@ public class ChatActivity extends AppCompatActivity {
                 holder = (MessageViewHolder) convertView.getTag();
             }
 
-            if(msg.get(position).getUser().equals(user)){
+            if(msg.get(position).getUser().equals(user)) {
                 holder.message.setBackground(ContextCompat.getDrawable(context, R.drawable.round_messge_user));
-                
             }else{
-                holder.message.setBackground(ContextCompat.getDrawable(context,R.drawable.round_message));
+                holder.message.setBackground(ContextCompat.getDrawable(context, R.drawable.round_message));
             }
             holder.message.setPadding(25,25,25,25);
-            if(msg.get(position).getChatroom() == chatroom) {
-                holder.user.setText(msg.get(position).getUser());
-                holder.message.setText(msg.get(position).getMessage());
-            }
+
+            holder.user.setText(msg.get(position).getUser());
+            holder.message.setText(msg.get(position).getMessage());
+
             return convertView;
         }
     }

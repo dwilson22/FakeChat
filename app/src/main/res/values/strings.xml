@@ -19,4 +19,5 @@
     <string name="confirmRoom">Would you like to go to ChatRoom %1$c ?</string>
     <string name="confirm">Confirm</string>
     <string name="send">Send Message</string>
+    <string name="empty_msg">Please enter some text!</string>
 </resources>

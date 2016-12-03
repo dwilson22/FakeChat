@@ -22,9 +22,9 @@ public class MessageManager {
         dbhelper = DatabaseHelper.getInstance(context);
     }
 
-    public List<Message> getMessages() {
+    public List<Message> getMessages(int chatroom) {
         SQLiteDatabase db = dbhelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + DatabaseHelper.TABLE_NAME_MSGS, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + DatabaseHelper.TABLE_NAME_MSGS+ " WHERE chatroom = "+ chatroom, null);
         List<Message> list = new ArrayList<>();
 
 
